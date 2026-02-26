@@ -147,5 +147,13 @@ Wasim Akram
 DevOps Practice & Infrastructure Automation
 
 ---
+## 🙏 Inspiration & Credits
+
+This project was inspired by the Terraform practice repository:
+
+https://github.com/iam-veeramalla/write_your_first_terraform_project
+
+The original project served as a learning reference.  
+This repository contains my own implementation, modifications, and hands-on practice with AWS and Terraform.
 
 🔥 This project is part of a hands-on DevOps learning journey focusing on automation, cloud provisioning, and infrastructure management using Terraform.
