@@ -5,20 +5,30 @@ terraform {
       version = "~> 4.16"
     }
   }
-
   required_version = ">= 1.2.0"
 }
 
 provider "aws" {
-  region  = "us-west-2"
+  region = "us-west-2"
+}
+
+# Get latest Amazon Linux 2 AMI dynamically
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+
+  owners = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+  }
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
-  instance_type = "t2.micro"
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = "t3.micro"
 
   tags = {
     Name = "Terraform_Demo"
   }
 }
-
